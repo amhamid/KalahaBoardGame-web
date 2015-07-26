@@ -4,14 +4,14 @@ var output;
 var createInitialMoveEvent = function(originPitIdentifier) {
   return {
     eventType: "INITIAL_MOVE",
-    originPitIdentifier: originPitIdentifier
-  };
+    originPitIdentifier: originPitIdentifier  
+  };  
 }
 
 function init() {
   output = document.getElementById("output");
   testWebSocket();
-  registerMoveButtonClickHandler();
+  registerMoveButtonClickHandler();  
   registerEventHandlers();
 }
 
@@ -72,7 +72,7 @@ function registerMoveButtonClickHandler() {
     $('[data-id="pit-'+i+'-move"]').on('click', function(e) {
       doSend(createInitialMoveEvent('Pit '+i));
     });
-  })
+  })  
 }
 
 function registerEventHandlers() {
@@ -82,19 +82,30 @@ function registerEventHandlers() {
         var eventType = data.eventType;
         if("EMPTY" === eventType || "NOT_EMPTY" === eventType) {
           $(this).text(data.numberOfSeeds);
-        }
-    });
-  });
+        } 
+    });    
+  }); 
 
   _.each([1, 2], function(i) {
     $('[data-id="kalaha-pit-'+i+'-value"]').on('notification', function(event, data) {
         console.log(data);
-        // var eventType = data.eventType;
-        var originalValue = $(this).text();
-        $(this).text(parseInt(originalValue) + 1);
-    });
-  });
+        var eventType = data.eventType;
+        var playerType = data.playerType;
+        var originPitIdentifier = data.originPitIdentifier;
 
+        if(("PLAYER_1" === playerType && "KalahaPit 1" === originPitIdentifier) 
+          || ("PLAYER_2" === playerType && "KalahaPit 2" === originPitIdentifier)) {
+            
+            if("STORED" === eventType) {
+              $(this).text(data.numberOfSeeds);
+            } else {
+              var originalValue = $(this).text();
+              $(this).text(parseInt(originalValue) + 1);
+            }
+        }
+      
+    });    
+  }); 
 
 }
 
@@ -118,9 +129,10 @@ function propagateEvents(events) {
         $('[data-id="kalaha-pit-'+i+'"]').trigger('notification', event);
       }
     });
-
+    
   });
 
 }
 
 window.addEventListener("load", init, false);
+
