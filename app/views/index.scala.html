@@ -1,67 +1,146 @@
 <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Kalaha Board Game</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="Underscore-min.js"></script>
+    <script src="test.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body class="container-fluid">
+<h2 class="text-center">Kalaha Board Game</h2>
 
-<meta charset="utf-8"/>  <title>WebSocket Test</title>
-<script type='text/javascript' src='@routes.Assets.at("javascripts/jquery-1.11.3.min.js")'></script>
-<link rel='shortcut icon' type='image/png' href='@routes.Assets.at("images/favicon.png")'>
-<script language="javascript" type="text/javascript">
-      var wsUri = "ws://localhost:9000/websocket";
-      var output;
+<div class="board">
+    <div class="row">
+        <div class="col-xs-3">
+        </div>
+        <div class="col-xs-1">
+            <span class="small pit-label">Pit 12</span>
+            <div data-id="pit-12" class="pit pit-player-2">
+                <span data-id="pit-12-value" class="seeds-value">6</span>
+            </div>
+            <a data-id="pit-12-move" class="btn btn-default move-button" href="#" role="button">Move</a>
+        </div>
+        <div class="col-xs-1">
+            <span class="small pit-label">Pit 11</span>
+            <div data-id="pit-11" class="pit pit-player-2">
+                <span data-id="pit-11-value" class="seeds-value">6</span>
+            </div>
+            <a data-id="pit-11-move" class="btn btn-default move-button" href="#" role="button">Move</a>
+        </div>
+        <div class="col-xs-1">
+            <span class="small pit-label">Pit 10</span>
+            <div data-id="pit-10" class="pit pit-player-2">
+                <span data-id="pit-10-value" class="seeds-value">6</span>
+            </div>
+            <a data-id="pit-10-move" class="btn btn-default move-button" href="#" role="button">Move</a>
+        </div>
+        <div class="col-xs-1">
+            <span class="small pit-label">Pit 9</span>
+            <div data-id="pit-9" class="pit pit-player-2">
+                <span data-id="pit-9-value" class="seeds-value">6</span>
+            </div>
+            <a data-id="pit-9-move" class="btn btn-default move-button" href="#" role="button">Move</a>
+        </div>
+        <div class="col-xs-1">
+            <span class="small pit-label">Pit 8</span>
+            <div data-id="pit-8" class="pit pit-player-2">
+                <span data-id="pit-8-value" class="seeds-value">6</span>
+            </div>
+            <a data-id="pit-8-move" class="btn btn-default move-button" href="#" role="button">Move</a>
+        </div>
+        <div class="col-xs-1">
+            <span class="small pit-label">Pit 7</span>
+            <div data-id="pit-7" class="pit pit-player-2">
+                <span data-id="pit-7-value" class="seeds-value">6</span>
+            </div>
+            <a data-id="pit-7-move" class="btn btn-default move-button" href="#" role="button">Move</a>
+        </div>
+        <div class="col-xs-3">
+        </div>
+    </div>
 
-      function init() {
-        output = document.getElementById("output");
-        testWebSocket();
-        }
+    <div class="row">
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-1">
+            <span class="small pit-label">Kalaha Pit 2</span>
+            <div data-id="kalaha-pit-2" class="kalaha-pit pit-player-2">
+                <span data-id="kalaha-pit-2-value" class="seeds-value">0</span>
+            </div>
+        </div>
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-5">
+        </div>
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-1">
+            <span class="small pit-label">Kalaha Pit 1</span>
+            <div data-id="kalaha-pit-1" class="kalaha-pit pit-player-1">
+                <span data-id="kalaha-pit-1-value" class="seeds-value">0</span>
+            </div>
+        </div>
+        <div class="col-xs-1">
+        </div>
+    </div>
 
-      function testWebSocket() {
-        websocket = new WebSocket(wsUri);
-        websocket.onopen = function(evt) {
-            onOpen(evt)
-        };
+    <div class="row">
+        <div class="col-xs-3">
+        </div>
+        <div class="col-xs-1">
+            <span class="text-center small pit-label">Pit 1</span>
+            <div data-id="pit-1" class="pit pit-player-1">
+                <span data-id="pit-1-value" class="seeds-value">6</span>
+            </div>
+            <a data-id="pit-1-move" class="btn btn-success move-button" href="#" role="button">Move</a>
+        </div>
+        <div class="col-xs-1">
+            <span class="text-center small pit-label">Pit 2</span>
+            <div data-id="pit-2" class="pit pit-player-1">
+                <span data-id="pit-2-value" class="seeds-value">6</span>
+            </div>
+            <a data-id="pit-2-move" class="btn btn-success move-button" href="#" role="button">Move</a>
+        </div>
+        <div class="col-xs-1">
+            <span class="text-center small pit-label">Pit 3</span>
+            <div data-id="pit-3" class="pit pit-player-1">
+                <span data-id="pit-3-value" class="seeds-value">6</span>
+            </div>
+            <a data-id="pit-3-move" class="btn btn-success move-button" href="#" role="button">Move</a>
+        </div>
+        <div class="col-xs-1">
+            <span class="text-center small pit-label">Pit 4</span>
+            <div data-id="pit-4" class="pit pit-player-1">
+                <span data-id="pit-4-value" class="seeds-value">6</span>
+            </div>
+            <a data-id="pit-4-move" class="btn btn-success move-button" href="#" role="button">Move</a>
+        </div>
+        <div class="col-xs-1">
+            <span class="text-center small pit-label">Pit 5</span>
+            <div data-id="pit-5" class="pit pit-player-1">
+                <span data-id="pit-5-value" class="seeds-value">6</span>
+            </div>
+            <a data-id="pit-5-move" class="btn btn-success move-button" href="#" role="button">Move</a>
+        </div>
+        <div class="col-xs-1">
+            <span class="text-center small pit-label">Pit 6</span>
+            <div data-id="pit-6" class="pit pit-player-1">
+                <span data-id="pit-6-value" class="seeds-value">6</span>
+            </div>
+            <a data-id="pit-6-move" class="btn btn-success move-button" href="#" role="button">Move</a>
+        </div>
+        <div class="col-xs-3">
+        </div>
+    </div>
+</div>
 
-        websocket.onclose = function(evt) {
-            onClose(evt)
-        };
-
-        websocket.onmessage = function(evt) {
-            onMessage(evt)
-        };
-
-        websocket.onerror = function(evt) {
-            onError(evt)
-        };
-      }
-
-      function onOpen(evt) {
-        writeToScreen("CONNECTED");
-        doSend('{"action":"WebSocket rocks"}');
-      }
-
-      function onClose(evt) {
-        writeToScreen("DISCONNECTED");
-      }
-
-      function onMessage(evt) {
-        writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data+'</span>');
-        //websocket.close();
-      }
-
-      function onError(evt) {
-        writeToScreen('<span style="color: red;">ERROR:</span> ' + evt.data);
-      }
-
-      function doSend(message) {
-        writeToScreen("SENT: " + message);
-        websocket.send(message);
-      }
-
-      function writeToScreen(message) {
-        var pre = document.createElement("p");
-        pre.style.wordWrap = "break-word";
-        pre.innerHTML = message;
-        output.appendChild(pre);
-      }
-
-      window.addEventListener("load", init, false);
-</script>
-<h2>WebSocket Test</h2>
 <div id="output"></div>
+
+</body>
+</html>

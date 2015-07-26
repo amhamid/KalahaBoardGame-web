@@ -1,0 +1,41 @@
+.board {
+	margin: 50px 100px 50px 100px;
+}
+
+.kalaha-pit {
+	border: 1px solid grey;
+	padding: 5px;
+	min-width: 60px;
+	line-height: 100px;
+	text-align: center;
+}
+
+.pit {
+	border: 1px solid grey;
+	padding: 5px;
+	min-width: 50px;
+	line-height: 50px;
+	text-align: center;
+}
+
+.pit-player-1 {
+	background-color:  #FFFFF0;
+}
+
+.pit-player-2 {
+	background-color:  #f3fbf9;
+}
+
+.pit-label {
+	color: grey;
+}
+
+.seeds-value {
+
+}
+
+.move-button {
+	margin-top: 10px;
+	padding: 1px;
+	width: 50px;
+}

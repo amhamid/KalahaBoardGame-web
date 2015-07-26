@@ -39,7 +39,7 @@ public class Application extends Controller {
             in.onClose(() -> System.out.println("Disconnected"));
 
             // Send a single 'Hello!' message
-            out.write(Json.toJson("Welcome To Kalaha Board Game"));
+//            out.write(Json.toJson("Welcome To Kalaha Board Game"));
         });
     }
 
