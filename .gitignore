@@ -1,0 +1,17 @@
+# Ignore Play! working directory #
+bin
+db
+logs
+modules
+project/project
+project/target
+target
+tmp
+test-result
+*.iml
+*.eml
+dist
+.cache
+.sbtserver
+.idea
+RUNNING_PID
