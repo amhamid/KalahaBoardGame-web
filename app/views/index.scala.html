@@ -4,143 +4,147 @@
     <meta charset="utf-8"/>
     <title>Kalaha Board Game</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
-    <script src="Underscore-min.js"></script>
-    <script src="test.js"></script>
-    <link rel="stylesheet" type="text/css" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src='@routes.Assets.at("javascripts/bootstrap-3.3.5-dist/js/bootstrap.min.js")'></script>
+    <script src='@routes.Assets.at("javascripts/underscore-min.js")'></script>
+    <script src='@routes.Assets.at("javascripts/kalaha.js")'></script>
+    <link rel="stylesheet" type="text/css" href='@routes.Assets.at("javascripts/bootstrap-3.3.5-dist/css/bootstrap.min.css")'>
+    <link rel="stylesheet" type="text/css" href='@routes.Assets.at("stylesheets/style.css")'>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 </head>
-<body class="container-fluid">
-<h2 class="text-center">Kalaha Board Game</h2>
+<body class="container">
 
 <div class="board">
-    <div class="row">
-        <div class="col-xs-3">
-        </div>
-        <div class="col-xs-1">
-            <span class="small pit-label">Pit 12</span>
-            <div data-id="pit-12" class="pit pit-player-2">
-                <span data-id="pit-12-value" class="seeds-value">6</span>
+    <h1 class="text-center title">Kalaha Board Game</h1>
+        <button data-id="player-2" type="button" class="btn btn-default" role="button">Player 2</button>
+        <div class="row">
+            <div class="col-xs-3">
             </div>
-            <a data-id="pit-12-move" class="btn btn-default move-button" href="#" role="button">Move</a>
-        </div>
-        <div class="col-xs-1">
-            <span class="small pit-label">Pit 11</span>
-            <div data-id="pit-11" class="pit pit-player-2">
-                <span data-id="pit-11-value" class="seeds-value">6</span>
+            <div class="col-xs-1">
+                <span class="small pit-label">Pit 12</span>
+                <div data-id="pit-12" class="pit pit-player-2">
+                    <span data-id="pit-12-value" class="seeds-value">6</span>
+                </div>
+                <button data-id="pit-12-move" type="button" class="btn btn-default move-button" role="button">Move</button>
             </div>
-            <a data-id="pit-11-move" class="btn btn-default move-button" href="#" role="button">Move</a>
-        </div>
-        <div class="col-xs-1">
-            <span class="small pit-label">Pit 10</span>
-            <div data-id="pit-10" class="pit pit-player-2">
-                <span data-id="pit-10-value" class="seeds-value">6</span>
+            <div class="col-xs-1">
+                <span class="small pit-label">Pit 11</span>
+                <div data-id="pit-11" class="pit pit-player-2">
+                    <span data-id="pit-11-value" class="seeds-value">6</span>
+                </div>
+                <button data-id="pit-11-move" type="button" class="btn btn-default move-button" role="button">Move</button>
             </div>
-            <a data-id="pit-10-move" class="btn btn-default move-button" href="#" role="button">Move</a>
-        </div>
-        <div class="col-xs-1">
-            <span class="small pit-label">Pit 9</span>
-            <div data-id="pit-9" class="pit pit-player-2">
-                <span data-id="pit-9-value" class="seeds-value">6</span>
+            <div class="col-xs-1">
+                <span class="small pit-label">Pit 10</span>
+                <div data-id="pit-10" class="pit pit-player-2">
+                    <span data-id="pit-10-value" class="seeds-value">6</span>
+                </div>
+                <button data-id="pit-10-move" type="button" class="btn btn-default move-button" role="button">Move</button>
             </div>
-            <a data-id="pit-9-move" class="btn btn-default move-button" href="#" role="button">Move</a>
-        </div>
-        <div class="col-xs-1">
-            <span class="small pit-label">Pit 8</span>
-            <div data-id="pit-8" class="pit pit-player-2">
-                <span data-id="pit-8-value" class="seeds-value">6</span>
+            <div class="col-xs-1">
+                <span class="small pit-label">Pit 9</span>
+                <div data-id="pit-9" class="pit pit-player-2">
+                    <span data-id="pit-9-value" class="seeds-value">6</span>
+                </div>
+                <button data-id="pit-9-move" type="button" class="btn btn-default move-button" role="button">Move</button>
             </div>
-            <a data-id="pit-8-move" class="btn btn-default move-button" href="#" role="button">Move</a>
-        </div>
-        <div class="col-xs-1">
-            <span class="small pit-label">Pit 7</span>
-            <div data-id="pit-7" class="pit pit-player-2">
-                <span data-id="pit-7-value" class="seeds-value">6</span>
+            <div class="col-xs-1">
+                <span class="small pit-label">Pit 8</span>
+                <div data-id="pit-8" class="pit pit-player-2">
+                    <span data-id="pit-8-value" class="seeds-value">6</span>
+                </div>
+                <button data-id="pit-8-move" type="button" class="btn btn-default move-button" role="button">Move</button>
             </div>
-            <a data-id="pit-7-move" class="btn btn-default move-button" href="#" role="button">Move</a>
+            <div class="col-xs-1">
+                <span class="small pit-label">Pit 7</span>
+                <div data-id="pit-7" class="pit pit-player-2">
+                    <span data-id="pit-7-value" class="seeds-value">6</span>
+                </div>
+                <button data-id="pit-7-move" type="button" class="btn btn-default move-button" role="button">Move</button>
+            </div>
+            <div class="col-xs-3">
+            </div>
         </div>
-        <div class="col-xs-3">
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-xs-1">
-        </div>
-        <div class="col-xs-1">
-            <span class="small pit-label">Kalaha Pit 2</span>
-            <div data-id="kalaha-pit-2" class="kalaha-pit pit-player-2">
-                <span data-id="kalaha-pit-2-value" class="seeds-value">0</span>
+        <div class="row">
+            <div class="col-xs-1">
+            </div>
+            <div class="col-xs-1">
+                <span class="small pit-label">Kalaha Pit 2</span>
+                <div data-id="kalaha-pit-2" class="kalaha-pit pit-player-2">
+                    <span data-id="kalaha-pit-2-value" class="seeds-value">0</span>
+                </div>
+            </div>
+            <div class="col-xs-1">
+            </div>
+            <div class="col-xs-1">
+            </div>
+            <div class="col-xs-5">
+            </div>
+            <div class="col-xs-1">
+            </div>
+            <div class="col-xs-1">
+                <span class="small pit-label">Kalaha Pit 1</span>
+                <div data-id="kalaha-pit-1" class="kalaha-pit pit-player-1">
+                    <span data-id="kalaha-pit-1-value" class="seeds-value">0</span>
+                </div>
+            </div>
+            <div class="col-xs-1">
             </div>
         </div>
-        <div class="col-xs-1">
-        </div>
-        <div class="col-xs-1">
-        </div>
-        <div class="col-xs-5">
-        </div>
-        <div class="col-xs-1">
-        </div>
-        <div class="col-xs-1">
-            <span class="small pit-label">Kalaha Pit 1</span>
-            <div data-id="kalaha-pit-1" class="kalaha-pit pit-player-1">
-                <span data-id="kalaha-pit-1-value" class="seeds-value">0</span>
-            </div>
-        </div>
-        <div class="col-xs-1">
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-xs-3">
-        </div>
-        <div class="col-xs-1">
-            <span class="text-center small pit-label">Pit 1</span>
-            <div data-id="pit-1" class="pit pit-player-1">
-                <span data-id="pit-1-value" class="seeds-value">6</span>
+        <div class="row">
+            <div class="col-xs-3">
             </div>
-            <a data-id="pit-1-move" class="btn btn-success move-button" href="#" role="button">Move</a>
-        </div>
-        <div class="col-xs-1">
-            <span class="text-center small pit-label">Pit 2</span>
-            <div data-id="pit-2" class="pit pit-player-1">
-                <span data-id="pit-2-value" class="seeds-value">6</span>
+            <div class="col-xs-1">
+                <span class="text-center small pit-label">Pit 1</span>
+                <div data-id="pit-1" class="pit pit-player-1">
+                    <span data-id="pit-1-value" class="seeds-value">6</span>
+                </div>
+                <button data-id="pit-1-move" type="button" class="btn btn-success move-button" role="button">Move</button>
             </div>
-            <a data-id="pit-2-move" class="btn btn-success move-button" href="#" role="button">Move</a>
-        </div>
-        <div class="col-xs-1">
-            <span class="text-center small pit-label">Pit 3</span>
-            <div data-id="pit-3" class="pit pit-player-1">
-                <span data-id="pit-3-value" class="seeds-value">6</span>
+            <div class="col-xs-1">
+                <span class="text-center small pit-label">Pit 2</span>
+                <div data-id="pit-2" class="pit pit-player-1">
+                    <span data-id="pit-2-value" class="seeds-value">6</span>
+                </div>
+                <button data-id="pit-2-move" type="button" class="btn btn-success move-button" role="button">Move</button>
             </div>
-            <a data-id="pit-3-move" class="btn btn-success move-button" href="#" role="button">Move</a>
-        </div>
-        <div class="col-xs-1">
-            <span class="text-center small pit-label">Pit 4</span>
-            <div data-id="pit-4" class="pit pit-player-1">
-                <span data-id="pit-4-value" class="seeds-value">6</span>
+            <div class="col-xs-1">
+                <span class="text-center small pit-label">Pit 3</span>
+                <div data-id="pit-3" class="pit pit-player-1">
+                    <span data-id="pit-3-value" class="seeds-value">6</span>
+                </div>
+                <button data-id="pit-3-move" type="button" class="btn btn-success move-button" role="button">Move</button>
             </div>
-            <a data-id="pit-4-move" class="btn btn-success move-button" href="#" role="button">Move</a>
-        </div>
-        <div class="col-xs-1">
-            <span class="text-center small pit-label">Pit 5</span>
-            <div data-id="pit-5" class="pit pit-player-1">
-                <span data-id="pit-5-value" class="seeds-value">6</span>
+            <div class="col-xs-1">
+                <span class="text-center small pit-label">Pit 4</span>
+                <div data-id="pit-4" class="pit pit-player-1">
+                    <span data-id="pit-4-value" class="seeds-value">6</span>
+                </div>
+                <button data-id="pit-4-move" type="button" class="btn btn-success move-button" role="button">Move</button>
             </div>
-            <a data-id="pit-5-move" class="btn btn-success move-button" href="#" role="button">Move</a>
-        </div>
-        <div class="col-xs-1">
-            <span class="text-center small pit-label">Pit 6</span>
-            <div data-id="pit-6" class="pit pit-player-1">
-                <span data-id="pit-6-value" class="seeds-value">6</span>
+            <div class="col-xs-1">
+                <span class="text-center small pit-label">Pit 5</span>
+                <div data-id="pit-5" class="pit pit-player-1">
+                    <span data-id="pit-5-value" class="seeds-value">6</span>
+                </div>
+                <button data-id="pit-5-move" type="button" class="btn btn-success move-button" role="button">Move</button>
             </div>
-            <a data-id="pit-6-move" class="btn btn-success move-button" href="#" role="button">Move</a>
+            <div class="col-xs-1">
+                <span class="text-center small pit-label">Pit 6</span>
+                <div data-id="pit-6" class="pit pit-player-1">
+                    <span data-id="pit-6-value" class="seeds-value">6</span>
+                </div>
+                <button data-id="pit-6-move" type="button" class="btn btn-success move-button" role="button">Move</button>
+            </div>
+            <div class="col-xs-3">
+            </div>
         </div>
-        <div class="col-xs-3">
-        </div>
-    </div>
+        <button data-id="player-1" type="button" class="btn btn-warning" role="button">Player 1</button>
 </div>
 
 <div id="output"></div>
-
+<div data-id="referee" style="display:none;"></div>
 </body>
 </html>

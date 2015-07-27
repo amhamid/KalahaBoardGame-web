@@ -1,5 +1,14 @@
+body {
+	background-color: #fcfbf6;
+}
+
 .board {
 	margin: 50px 100px 50px 100px;
+	min-width: 750px;
+}
+
+.title {
+	margin-bottom: 50px
 }
 
 .kalaha-pit {

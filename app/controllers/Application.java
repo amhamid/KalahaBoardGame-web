@@ -53,10 +53,7 @@ public class Application extends Controller {
                 case INITIAL_MOVE:
                     final Pit pit = kalahaBoard.getAllPits().get(originPitIdentifier);
                     if (Objects.nonNull(pit)) {
-                        System.out.println("MOVE IT");
                         pit.initialMove();
-                    } else {
-                        System.out.println("WHA ?");
                     }
                     break;
                 default:
