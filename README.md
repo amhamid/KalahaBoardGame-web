@@ -1,4 +1,11 @@
-# Kalaha Board Game web using Play framework
+```
+    _         _       _                                        
+    | | ____ _| | __ _| |__   __ _    __ _  __ _ _ __ ___   ___ 
+    | |/ / _` | |/ _` | '_ \ / _` |  / _` |/ _` | '_ ` _ \ / _ \
+    |   < (_| | | (_| | | | | (_| | | (_| | (_| | | | | | |  __/
+    |_|\_\__,_|_|\__,_|_| |_|\__,_|  \__, |\__,_|_| |_| |_|\___|
+                                     |___/                                                                                
+```                            
 
 This is a simple Kalaha Board game web UI that makes use of my event-driven [KalahaCoreLibrary](https://github.com/amhamid/KalahaCoreLibrary). 
 This project makes use of Play framework 2.4.2 using Java and basically it starts a WebSocket where client can play Kalaha with 2 players (currently from the same computer).
