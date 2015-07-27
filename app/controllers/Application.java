@@ -22,27 +22,28 @@ public class Application extends Controller {
         return ok(index.render());
     }
 
+    /**
+     * Create websocket
+     */
     public WebSocket<JsonNode> socket() {
         final KalahaBoard kalahaBoard = new KalahaBoard(6);
+        // set up observers
+        final GameEventObserver gameEventObserver = new GameEventObserver();
+        final Set<EventType> eventTypes = new LinkedHashSet<>(Arrays.asList(EventType.values()));
+        kalahaBoard.getReplayableEventPublisher().addObserver(eventTypes, gameEventObserver);
 
         return WebSocket.whenReady((in, out) -> {
-
-            // set up observers
-            final GameEventObserver gameEventObserver = new GameEventObserver();
-            final Set<EventType> eventTypes = new LinkedHashSet<>(Arrays.asList(EventType.values()));
-            kalahaBoard.getReplayableEventPublisher().addObserver(eventTypes, gameEventObserver);
-
             // For each event received on the socket,
             in.onMessage(handleInput(out, kalahaBoard, gameEventObserver));
 
             // When the socket is closed.
             in.onClose(() -> System.out.println("Disconnected"));
-
-            // Send a single 'Hello!' message
-//            out.write(Json.toJson("Welcome To Kalaha Board Game"));
         });
     }
 
+    /**
+     * Handle clients input
+     */
     private F.Callback<JsonNode> handleInput(WebSocket.Out<JsonNode> out, KalahaBoard kalahaBoard, GameEventObserver gameEventObserver) {
         return input -> {
             final String action = input.findPath("eventType").textValue();
