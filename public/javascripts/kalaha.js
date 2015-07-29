@@ -82,9 +82,7 @@ function registerEventHandlers() {
         }
 
         if("CAPTURE_SEEDS" === eventType) {
-          setTimeout(function() {
             moveAnimation($('[data-id="pit-'+i+'"]'), i);
-          }, 1000);
         }
     });
   });
@@ -101,10 +99,8 @@ function registerEventHandlers() {
 
             if("STORED" === eventType) {
               var $el = $(this);
-              setTimeout(function() {
                 $el.text(data.numberOfSeeds);
                 moveAnimation($('[data-id="kalaha-pit-'+i+'"]'));
-              }, 2000);
             } else {
               var originalValue = $(this).text();
               $(this).text(parseInt(originalValue) + 1);
@@ -176,16 +172,26 @@ function registerEventHandlers() {
       $('[data-id="pit-'+i+'-move"]').prop('disabled', true);
     });
 
-    // wait a bit to make sure that animations are finished before showing alert popup
-    setTimeout(function() {
+    var playerType = data.playerType;
+    alert("Congratulation "+playerType+" Wins !!");
+
+    // reload page to start a new game
+    location.reload();
+  });
+
+  // reacting on TIE_GAME event
+  $('[data-id="referee"]').on('TIE_GAME', function(event, data) {
+      // disable all move buttons
+      _.each([1,2,3,4,5,6,7,8,9,10,11,12], function(i) {
+        $('[data-id="pit-'+i+'-move"]').prop('disabled', true);
+      });
+
       var playerType = data.playerType;
-      alert("Congratulation "+playerType+" Wins !!");
+      alert("TIE GAME !!");
 
       // reload page to start a new game
       location.reload();
-    }, 1000);
-
-  });
+    });
 }
 
 // make move animation so that user can track changes on the board
@@ -211,37 +217,52 @@ function moveAnimation($el) {
 // propagate events received from websocket to DOMs
 // basically here we propagate all events to our listeners
 // the listener will decide whether they want to handle it or not
+// NOTE: add setTimeout() on events propagation so that events are sent in the order the events were received !
 function propagateEvents(events) {
-  _.each(events, function(event) {
+
+  // disable all move buttons
+    _.each([1,2,3,4,5,6,7,8,9,10,11,12], function(i) {
+    $('[data-id="pit-'+i+'-move"]').prop('disabled', true);
+  });
+
+  _.each(events, function(event, index) {
     var originPitIdentifier = event.originPitIdentifier;
     var eventType = event.eventType;
 
     // events for normal pits
     _.each([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], function(i) {
       if(originPitIdentifier === "Pit "+i) {
-        $('[data-id="pit-'+i+'-value"]').trigger('notification', event);
-        $('[data-id="pit-'+i+'-move"]').trigger('notification', event);
-        $('[data-id="pit-'+i+'"]').trigger('notification', event);
+        setTimeout(function() {
+          $('[data-id="pit-'+i+'-value"]').trigger('notification', event);
+          $('[data-id="pit-'+i+'-move"]').trigger('notification', event);
+          $('[data-id="pit-'+i+'"]').trigger('notification', event);
+        }, index * 200);
       }
     });
 
     // events for kalaha pit 1 and 2
     _.each([1, 2], function(i) {
-      if(originPitIdentifier === "KalahaPit "+i) {
-        $('[data-id="kalaha-pit-'+i+'-value"]').trigger('notification', event);
-        $('[data-id="kalaha-pit-'+i+'-move"]').trigger('notification', event);
-        $('[data-id="kalaha-pit-'+i+'"]').trigger('notification', event);
-      }
+        setTimeout(function() {
+          if(originPitIdentifier === "KalahaPit "+i) {
+            $('[data-id="kalaha-pit-'+i+'-value"]').trigger('notification', event);
+            $('[data-id="kalaha-pit-'+i+'-move"]').trigger('notification', event);
+            $('[data-id="kalaha-pit-'+i+'"]').trigger('notification', event);
+          }
+        }, index * 200);
     });
 
-    // events for player 1 and 2
-    $('[data-id="player-1"]').trigger('notification', event);
-    $('[data-id="player-2"]').trigger('notification', event);
+    setTimeout(function() {
+        // events for player 1 and 2
+        $('[data-id="player-1"]').trigger('notification', event);
+        $('[data-id="player-2"]').trigger('notification', event);
+    }, index * 250); // give a bit more delay before send notification to player
 
-    // WINS event
-    if("WINS" == eventType) {
-      $('[data-id="referee"]').trigger('WINS', event);
-    }
+    setTimeout(function() {
+        // WINS event
+        if("WINS" == eventType || "TIE_GAME" == eventType) {
+          $('[data-id="referee"]').trigger(eventType, event);
+        }
+    }, index * 300); // give a bit more delay before notify the end result of the game
 
   });
 }
