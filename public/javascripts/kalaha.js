@@ -1,5 +1,6 @@
 // with assumption that Play runs on port 9000
-var wsUri = "ws://localhost:9000/websocket";
+//var wsUri = "ws://localhost:9000/websocket";
+var wsUri = "ws://37.139.20.196:9000/websocket"; // deployed to digital ocean
 var output;
 
 // initialize websocket connection

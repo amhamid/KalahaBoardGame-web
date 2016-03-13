@@ -7,8 +7,8 @@
                                      |___/                                                                                
 ```                            
 
-This is a simple Kalaha Board game web UI that makes use of my event-driven [KalahaCoreLibrary](https://github.com/amhamid/KalahaCoreLibrary). 
-This project makes use of Play framework 2.4.2 using Java and basically it starts a WebSocket where client can play Kalaha with 2 players (currently from the same computer).
+This is a simple [Kalaha board game](https://en.wikipedia.org/wiki/Kalah) web UI that makes use of my event-driven [Kalaha Core Library](https://github.com/amhamid/KalahaCoreLibrary). 
+This project makes use of Play framework 2.4.2 using Java 8. It starts a WebSocket where client can play Kalaha with 2 players (currently from the same computer).
 
 This web UI is a simple UI that propagates all events emitted by Kalaha core library based on user actions.
 This UI contains no logic on Kalaha game rules, only event handling and animations.
