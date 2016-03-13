@@ -20,7 +20,7 @@ To run in you need TypeSafe Activator 1.3.5+, it will be run on default port 900
 activator run
 ```
 
-For demo purposes, I uploaded a YouTube video of this application (no sound) [See demo](https://www.youtube.com/watch?v=chwWDDO3Aeo)
+For demo purposes, I uploaded a YouTube video of this application (no sound) [See demo](http://www.youtube.com/watch?v=Y9IRkOyos5s)
 
 Here is also a screenshot, where I just start the first move from player 1 on pit number 2.
 In the bottom of the page, you see the events being emitted by KalahaCoreLibrary that are handled by this UI.
